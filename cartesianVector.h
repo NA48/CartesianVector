@@ -30,4 +30,6 @@ class CartVec
   // Other functions
   void print(void) const;
   float dot(const CartVec &prime) const;
+  CartVec cross(const CartVec &prime) const;
+  CartVec normalize(void) const;
 };

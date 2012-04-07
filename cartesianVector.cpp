@@ -95,7 +95,20 @@ void CartVec::print(void) const
   cout << "(" << i[0] << "," << i[1] << "," << i[2] << ")" << endl;
 }
 
+CartVec CartVec::normalize(void) const
+{
+  float length = sqrt(i[0]*i[0]+i[1]*i[1]+i[2]*i[2]);
+  return CartVec(i[0]/length,i[1]/length,i[2]/length);
+}
+
 float CartVec::dot(const CartVec &prime) const
 {
   return(i[0]*prime.i[0]+i[1]*prime.i[1]+i[2]*prime.i[2]);
+}
+
+CartVec CartVec::cross(const CartVec &prime) const
+{
+  return CartVec(i[1]*prime.i[2]-i[2]*prime.i[1],
+		 i[2]*prime.i[0]-i[0]*prime.i[2],
+		 i[0]*prime.i[1]-i[1]*prime.i[0]);
 }
